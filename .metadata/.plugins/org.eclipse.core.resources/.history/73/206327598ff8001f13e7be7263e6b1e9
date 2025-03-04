@@ -1,0 +1,40 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Cadastro de Time</title>
+</head>
+<body>
+    <h1>Time de Futebol Cadastrado</h1>
+    
+    <%
+        // Recupera os dados enviados pelo formulário através do objeto request
+        String nome = request.getParameter("nome");
+        String cidade = request.getParameter("cidade");
+        String fundacaoStr = request.getParameter("fundacao");
+        String tecnico = request.getParameter("tecnico");
+        
+        // Conversão do campo "fundacao" de String para inteiro
+        int fundacao = 0;
+        try {
+            fundacao = Integer.parseInt(fundacaoStr);
+        } catch(NumberFormatException e) {
+            out.println("<p>Erro ao converter o ano de fundação. Verifique o valor informado.</p>");
+        }
+    %>
+    
+    <!-- Exibe os dados do time cadastrado -->
+    <p><strong>Nome do Time:</strong> <%= nome %></p>
+    <p><strong>Cidade:</strong> <%= cidade %></p>
+    <p><strong>Ano de Fundação:</strong> <%= fundacao %></p>
+    <p><strong>Técnico:</strong> <%= tecnico %></p>
+    
+    <!-- Comentários:
+         - Nesta página JSP, utilizamos scriptlets para recuperar os parâmetros enviados pelo formulário.
+         - request.getParameter("nome") recupera o valor do campo "nome", e assim por diante.
+         - O valor de "fundacao" é convertido de String para int utilizando Integer.parseInt().
+         - Caso ocorra um erro na conversão, uma mensagem de erro é exibida.
+         - Os dados são então exibidos utilizando JSP Expressions .
+    -->
+</body>
+</html>

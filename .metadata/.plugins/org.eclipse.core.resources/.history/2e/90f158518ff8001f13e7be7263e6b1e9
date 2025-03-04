@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Times de Futebol</title>
+    <!-- Você pode incluir um link para um arquivo CSS externo, se desejar -->
+</head>
+<body>
+    <h1>Cadastro de Times de Futebol</h1>
+    <!-- Formulário que envia os dados via método POST para a página JSP cadastroTime.jsp -->
+    <form action="cadastroTime.jsp" method="post">
+        <!-- Campo para o nome do time -->
+        <label for="nome">Nome do Time:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br><br>
+        
+        <!-- Campo para a cidade do time -->
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" required>
+        <br><br>
+        
+        <!-- Campo para o ano de fundação do time -->
+        <label for="fundacao">Ano de Fundação:</label>
+        <input type="number" id="fundacao" name="fundacao" required>
+        <br><br>
+        
+        <!-- Campo para o nome do técnico -->
+        <label for="tecnico">Técnico:</label>
+        <input type="text" id="tecnico" name="tecnico" required>
+        <br><br>
+        
+        <!-- Botão para enviar o formulário -->
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

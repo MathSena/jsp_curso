@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Times de Futebol</title>
+    <!-- CSS embutido para estilizar o formulário -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        input, select {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Times de Futebol</h1>
+    <!-- Formulário que envia os dados via método POST para a página JSP cadastroTime.jsp -->
+    <form action="cadastroTime.jsp" method="post">
+        <!-- Campo para o nome do time -->
+        <label for="nome">Nome do Time:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        
+        <!-- Campo para a cidade do time -->
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" required>
+        <br>
+        
+        <!-- Campo para o ano de fundação do time -->
+        <label for="fundacao">Ano de Fundação:</label>
+        <input type="number" id="fundacao" name="fundacao" required>
+        <br>
+        
+        <!-- Campo para o nome do técnico -->
+        <label for="tecnico">Técnico:</label>
+        <input type="text" id="tecnico" name="tecnico" required>
+        <br>
+        
+        <!-- Drop-Down List para selecionar a divisão do time -->
+        <label for="divisao">Divisão:</label>
+        <select id="divisao" name="divisao">
+            <option value="serie_a">Série A</option>
+            <option value="serie_b">Série B</option>
+            <option value="serie_c">Série C</option>
+            <option value="serie_d">Série D</option>
+        </select>
+        <br>
+        
+        <!-- Radio Buttons para definir o status do time -->
+        <p>Status do Time:</p>
+        <label for="profissional">
+            <input type="radio" id="profissional" name="status" value="profissional" required>
+            Profissional
+        </label>
+        <label for="amador">
+            <input type="radio" id="amador" name="status" value="amador">
+            Amador
+        </label>
+        <br><br>
+        
+        <!-- Botão para enviar o formulário -->
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

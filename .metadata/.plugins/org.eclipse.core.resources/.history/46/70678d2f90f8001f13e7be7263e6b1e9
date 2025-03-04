@@ -1,0 +1,82 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Cadastro de Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Time de Futebol Cadastrado</h1>
+    
+    <%
+        // Recupera os dados enviados pelo formulário via objeto request
+        String nome = request.getParameter("nome");
+        String cidade = request.getParameter("cidade");
+        String fundacaoStr = request.getParameter("fundacao");
+        String tecnico = request.getParameter("tecnico");
+        String divisao = request.getParameter("divisao");
+        String status = request.getParameter("status");
+        
+        // Converte o campo "fundacao" de String para int, tratando possíveis erros
+        int fundacao = 0;
+        try {
+            fundacao = Integer.parseInt(fundacaoStr);
+        } catch(NumberFormatException e) {
+            out.println("<p>Erro ao converter o ano de fundação. Verifique o valor informado.</p>");
+        }
+        
+        // Converte o valor da drop-down list para um nome mais amigável
+        String divisaoNome;
+        switch(divisao) {
+            case "serie_a":
+                divisaoNome = "Série A";
+                break;
+            case "serie_b":
+                divisaoNome = "Série B";
+                break;
+            case "serie_c":
+                divisaoNome = "Série C";
+                break;
+            case "serie_d":
+                divisaoNome = "Série D";
+                break;
+            default:
+                divisaoNome = "Não especificada";
+        }
+        
+        // Converte o valor do radio button para um nome legível
+        String statusNome;
+        if ("profissional".equals(status)) {
+            statusNome = "Profissional";
+        } else if ("amador".equals(status)) {
+            statusNome = "Amador";
+        } else {
+            statusNome = "Não especificado";
+        }
+    %>
+    
+    <!-- Exibe os dados do time cadastrado -->
+    <p><strong>Nome do Time:</strong> <%= nome %></p>
+    <p><strong>Cidade:</strong> <%= cidade %></p>
+    <p><strong>Ano de Fundação:</strong> <%= fundacao %></p>
+    <p><strong>Técnico:</strong> <%= tecnico %></p>
+    <p><strong>Divisão:</strong> <%= divisaoNome %></p>
+    <p><strong>Status do Time:</strong> <%= statusNome %></p>
+    
+    <!--
+         Comentários:
+         - Os parâmetros enviados pelo formulário são recuperados utilizando request.getParameter("nome_do_campo").
+         - O valor do campo "fundacao" é convertido para inteiro com tratamento de exceção.
+         - A drop-down list e os radio buttons são processados para exibir valores amigáveis.
+         - Os dados são apresentados na página utilizando JSP Expressions .
+    -->
+</body>
+</html>

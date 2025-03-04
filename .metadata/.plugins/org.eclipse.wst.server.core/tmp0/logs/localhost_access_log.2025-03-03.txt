@@ -14,3 +14,13 @@
 0:0:0:0:0:0:0:1 - - [03/Mar/2025:20:55:55 -0300] "GET /jspdemo/BuiltIn.jsp HTTP/1.1" 500 2445
 0:0:0:0:0:0:0:1 - - [03/Mar/2025:20:56:58 -0300] "GET /jspdemo/BuiltIn.jsp HTTP/1.1" 200 849
 0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:06:34 -0300] "GET /jspdemo/Index.jsp HTTP/1.1" 200 856
+127.0.0.1 - - [03/Mar/2025:21:25:01 -0300] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:25:02 -0300] "GET /jspdemo/cadastroTime.html HTTP/1.1" 200 1263
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:25:21 -0300] "POST /jspdemo/cadastroTime.jsp HTTP/1.1" 200 913
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:26:48 -0300] "POST /jspdemo/cadastroTime.jsp HTTP/1.1" 500 2460
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:26:51 -0300] "GET /jspdemo/cadastroTime.html HTTP/1.1" 200 1967
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:27:04 -0300] "POST /jspdemo/cadastroTime.jsp HTTP/1.1" 200 1115
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:31:12 -0300] "GET /jspdemo/cadastroTime.html HTTP/1.1" 200 2366
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:31:25 -0300] "POST /jspdemo/cadastroTime.jsp HTTP/1.1" 200 1132
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:32:58 -0300] "GET /jspdemo/cadastroTime.html HTTP/1.1" 200 3201
+0:0:0:0:0:0:0:1 - - [03/Mar/2025:21:33:13 -0300] "POST /jspdemo/cadastroTime.jsp HTTP/1.1" 200 1333

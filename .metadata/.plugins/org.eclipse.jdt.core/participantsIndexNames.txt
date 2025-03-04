@@ -1,4 +1,6 @@
 INDEX VERSION 1.134
+/Users/mathsena/jspCurso/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2050929623.index
+/jspdemo/src/main/java
 /Users/mathsena/jspCurso/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2971034090.index
 /jspdemo/src/main/java
 /Users/mathsena/jspCurso/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/785709974.index
