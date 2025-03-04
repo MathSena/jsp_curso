@@ -1,0 +1,72 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    // Recupera a lista de tarefas armazenada na sessão
+    ArrayList<String> tasks = (ArrayList<String>) session.getAttribute("tasks");
+    if (tasks == null) {
+        // Se a lista não existir, cria uma nova e a armazena na sessão
+        tasks = new ArrayList<String>();
+        session.setAttribute("tasks", tasks);
+    }
+    
+    // Se o formulário de adição foi submetido via POST com uma nova tarefa, adiciona à lista
+    String newTask = request.getParameter("task");
+    if (newTask != null && !newTask.trim().isEmpty()){
+        tasks.add(newTask.trim());
+    }
+%>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List - Tarefas</title>
+    <style>
+        /* Estilização similar ao index.html */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #28a745;
+            border-radius: 3px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Suas Tarefas</h1>
+        <!-- Exibe a lista de tarefas armazenadas na sessão -->
+        <ul>
+            <% for(String task : tasks) { %>
+                <li><%= task %></li>
+            <% } %>
+        </ul>
+        <!-- Link para voltar à página de inserção de tarefas -->
+        <p style="text-align: center;"><a href="index.html">Voltar</a></p>
+    </div>
+</body>
+</html>

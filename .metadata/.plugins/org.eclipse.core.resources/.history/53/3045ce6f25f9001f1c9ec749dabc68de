@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <style>
+        /* Estilização global */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        /* Container centralizado com sombra e bordas arredondadas */
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        /* Título centralizado */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        /* Grupo de entrada (input + botão) */
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        /* Campo de texto para nova tarefa */
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        /* Botão para adicionar tarefa */
+        button {
+            padding: 10px;
+            margin-left: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        /* Lista sem marcador e sem margem */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        /* Cada item da lista */
+        ul li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #28a745;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Tarefa concluída terá texto riscado */
+        ul li.completed {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+        /* Botão de exclusão da tarefa */
+        ul li button.delete {
+            background-color: #dc3545;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        ul li button.delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <!-- Grupo para inserir nova tarefa -->
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Adicione uma nova tarefa">
+            <button id="addTaskBtn">Adicionar</button>
+        </div>
+        <!-- Lista onde as tarefas serão exibidas -->
+        <ul id="taskList">
+            <!-- As tarefas serão adicionadas dinamicamente aqui -->
+        </ul>
+    </div>
+
+    <script>
+        // Seleciona os elementos do DOM
+        const taskInput = document.getElementById('taskInput');
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const taskList = document.getElementById('taskList');
+
+        // Função para adicionar nova tarefa
+        addTaskBtn.addEventListener('click', function() {
+            const taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                // Cria o elemento de lista para a tarefa
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                
+                // Cria um botão para deletar a tarefa
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = "Excluir";
+                deleteBtn.className = "delete";
+                
+                // Evento para excluir a tarefa ao clicar no botão
+                deleteBtn.addEventListener('click', function(e) {
+                    // Previne que o clique seja propagado para o li
+                    e.stopPropagation();
+                    taskList.removeChild(li);
+                });
+                
+                // Adiciona o botão de excluir ao item da lista
+                li.appendChild(deleteBtn);
+                
+                // Evento para marcar/desmarcar a tarefa como concluída
+                li.addEventListener('click', function(e) {
+                    if(e.target.tagName !== 'BUTTON') {
+                        li.classList.toggle('completed');
+                    }
+                });
+                
+                // Adiciona o item na lista e limpa o campo de entrada
+                taskList.appendChild(li);
+                taskInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
